@@ -8,6 +8,7 @@ class User(AbstractUser):
     """
     name   = models.CharField('ユーザ名', max_length=15)
     who_is = models.CharField('自己紹介',  max_length=63)
+    mail   = models.CharField('メールアドレス', max_length=127)
 
     class Meta:
         constraints = [

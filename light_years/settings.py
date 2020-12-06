@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import sys
+sys.path.append('../')
+
+try:
+    from light_years.local_settings import *
+except ImportError:
+    pass
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,7 +60,7 @@ ROOT_URLCONF = 'light_years.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['', 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,13 +119,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'gravitation.user'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
-try:
-    from light_years.local_settings import *
-except ImportError:
-    pass
+# パスワードリセット用メール送信設定
+# TODO
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True

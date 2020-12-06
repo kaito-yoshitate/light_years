@@ -3,7 +3,7 @@ from gravitation import views
 
 app_name = 'gravitation'
 urlpatterns = [
-    path('gravitation/register', views.register_user,          name='register'),
-    path('gravitation/',         views.display_prev_lonliness, name='someone'),
-    path('gravitation/submit/',  views.submit_own_lonliness,   name='mine')
+    path('register/', views.register_user,          name='register'),
+    path('/',         views.display_prev_lonliness, name='someone'),
+    path('/submit/',  views.submit_own_lonliness,   name='mine')
 ]

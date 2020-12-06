@@ -1,25 +1,27 @@
 from django import forms
-from graivtation.models import User, Lonliness
+from gravitation.models import User, Lonliness
 
 
 class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('name', 'who_is')
+        fields = ('name', 'who_is', 'mail')
         labels = {
             'name'   : 'お名前',
-            'who_is' : '自己紹介'
+            'who_is' : '自己紹介',
+            'mail'   : 'メールアドレス'
         }
         help_texts = {
             'name'   : '名前を書く',
-            'who_is' : '自己紹介を書く'
+            'who_is' : '自己紹介を書く',
+            'mail'   : 'メールアドレスをいれる'
         }
 
 
 class SubmitForm(forms.ModelForm):
     class Meta:
         model = Lonliness
-        fields = ('content')
+        fields = ('content',)
         labels = {
             'content'  : 'さみしさ'
         }

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('gravitation/', include('gravitation.urls')),
     path('admin/', admin.site.urls),
-    path('gravitation/', include('django.contrib.auth.urls')),
+    path('gravitation/accounts/', include('django.contrib.auth.urls')),
+    path('gravitation/', include('gravitation.urls')),
 ]

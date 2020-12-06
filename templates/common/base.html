@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang='ja'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HHBook</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="title">{% block titele %}Sample{% endblock %}</div>
+      {% if user.is_authenticated %}
+      <p>{{ user.username }}でログイン中</p>
+      {% else %}
+      <p>ログインしていません</p>
+      {% endif %}
+    </header>
+    <!-- メインコンテンツ -->
+    <div class="content">
+      <!-- コンテンツ -->
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>
